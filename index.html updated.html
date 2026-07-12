@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ElevaTech builds AI assistants for modern businesses.">
+  <title>ElevaTech | AI Employees for Modern Businesses</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="#top" aria-label="ElevaTech home">ElevaTech</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">Open navigation</span><span aria-hidden="true">☰</span>
+      </button>
+      <nav id="site-nav" aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#demo" class="nav-btn">Book Demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-content">
+        <span class="hero-tag">🚀 AI Automation for Modern Businesses</span>
+        <h1>Your Next Employee<br>Is AI.</h1>
+        <p>ElevaTech builds intelligent AI assistants that answer customer questions, qualify leads, and book appointments 24/7.</p>
+        <div class="hero-buttons">
+          <a href="#demo" class="btn">Try Live Demo</a>
+          <a href="#services" class="btn btn-secondary">Explore Services</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <h2>Meet AutoAssist</h2>
+        <p class="section-text">Your AI Sales Consultant for automotive dealerships.</p>
+        <div class="cards">
+          <article class="card"><p class="card-icon">🚗</p><h3>Vehicle Recommendations</h3><p>Help customers compare vehicles and find the perfect Porsche.</p></article>
+          <article class="card"><p class="card-icon">📅</p><h3>Book Test Drives</h3><p>Schedule appointments automatically without waiting for staff.</p></article>
+          <article class="card"><p class="card-icon">📈</p><h3>Qualify Leads</h3><p>Collect customer information before handing them to your sales team.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="container">
+        <h2>Why Choose ElevaTech?</h2>
+        <p class="section-text">AI employees that work 24/7, qualify leads, automate customer support, and help your business grow.</p>
+        <div class="cards">
+          <article class="card"><p class="card-icon">⚡</p><h3>Instant Responses</h3><p>Reply to customers in seconds.</p></article>
+          <article class="card"><p class="card-icon">🌙</p><h3>24/7 Availability</h3><p>Your AI never sleeps.</p></article>
+          <article class="card"><p class="card-icon">📈</p><h3>More Leads</h3><p>Capture more customers automatically.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="demo">
+      <div class="container">
+        <h2>Try AutoAssist</h2>
+        <p class="section-text">Chat with our AI assistant below.</p>
+        <flowise-fullchatbot aria-label="AutoAssist chat"></flowise-fullchatbot>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <h2>Let's Talk</h2>
+        <p class="section-text">Interested in bringing AI to your business?</p>
+        <a href="mailto:ElevaTechAI@email.com" class="btn">Contact ElevaTech</a>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container"><p>© 2026 ElevaTech. All rights reserved.</p></div></footer>
+
+  <script type="module">
+    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js";
+    Chatbot.initFull({
+      chatflowid: "161b65e5-27ed-4aec-adbf-0a4900dba2a7",
+      apiHost: "https://cloud.flowiseai.com",
+      target: document.querySelector("flowise-fullchatbot")
+    });
+  </script>
+
+  <script>
+    const toggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector("#site-nav");
+
+    toggle.addEventListener("click", () => {
+      const open = nav.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", open);
+      toggle.querySelector("[aria-hidden]").textContent = open ? "×" : "☰";
+    });
+
+    nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      nav.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.querySelector("[aria-hidden]").textContent = "☰";
+    }));
+  </script>
+</body>
+</html>
